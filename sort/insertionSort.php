@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * 插入排序（正序）
+ * 
+ * 时间复杂度：O(n^2)
+ */
 function insertionSort(&$arr) {
     $len = count($arr);
 
@@ -18,7 +23,9 @@ function insertionSort(&$arr) {
     return $arr;
 }
 
-$arr = [2, 66, 32, 1, 45, 12];
+// 生成100个数，打乱
+$arr = range(1, 100);
+shuffle($arr);
 
 insertionSort($arr);
 print_r($arr);
