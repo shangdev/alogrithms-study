@@ -11,3 +11,5 @@
 ### 排序
 
 - sort/insertionSort.php（插入排序）
+
+- sort/mergeSort.php（归并排序）
