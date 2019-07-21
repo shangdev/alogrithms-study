@@ -8,7 +8,7 @@
 // 分解
 function mergeSort(&$A, $p, $r) {
     if ($p < $r) {
-        $q = floor(($p + $r) / 2);
+        $q = floor(($p + $r) / 2); // 向下取整（ceil：向上取整)
         mergeSort($A, $p, $q);
         mergeSort($A, $q + 1, $r);
         merge($A, $p, $q, $r);
@@ -31,9 +31,11 @@ function merge(&$A, $p, $q, $r) {
         $R[$j] = $A[$q + $j + 1];
     }
     
-    $L[$n1] = 10000;
-    $R[$n2] = 10000;
+    // 设置哨兵
+    $L[$n1] = PHP_INT_MAX;
+    $R[$n2] = PHP_INT_MAX;
     
+    // 重置$i和$j的值
     $i = 0;
     $j = 0;
     
@@ -48,8 +50,8 @@ function merge(&$A, $p, $q, $r) {
     }
 }
 
-// 生成9999个数，打乱
-$arr = range(0, 9999);
+// 生成10个数，打乱
+$arr = range(1, 10);
 shuffle($arr);
 
 mergeSort($arr, 0, count($arr) - 1);
