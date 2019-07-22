@@ -3,6 +3,8 @@
 /**
  * 插入排序（正序）
  * 
+ * 逆序：元素比较修改为 $arr[$i] < $p
+ * 
  * 时间复杂度：O(n^2)
  */
 function insertionSort(&$arr) {
