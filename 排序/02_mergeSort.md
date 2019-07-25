@@ -1,12 +1,12 @@
-<?php
-/**
- * 归并排序（正序）（分治法）
- * 
- * 逆序：哨兵设置最小值，如1；元素比较修改为 $L[$i] >= $R[$j]
- * 
- * 时间复杂度：O(nlgn)
- */
+# 归并排序
 
+---
+
+## 分治求解法
+
+正序：
+
+```php
 // 分解
 function mergeSort(&$A, $p, $r) {
     if ($p < $r) {
@@ -51,11 +51,19 @@ function merge(&$A, $p, $q, $r) {
         }
     }
 }
+```
 
+逆序：哨兵设置最小值，如1；元素比较修改为 $L[$i] >= $R[$j]
+
+测试：
+
+```php
 // 生成10个数，打乱
 $arr = range(1, 10);
 shuffle($arr);
 
 mergeSort($arr, 0, count($arr) - 1);
-
 print_r($arr);
+```
+
+算法复杂度：O(nlgn)

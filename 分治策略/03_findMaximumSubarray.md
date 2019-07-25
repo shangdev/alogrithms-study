@@ -2,9 +2,7 @@
 
 ---
 
-## 暴力破解法
-
-## 分治法
+## 分治求解法
 
 > 假定寻找子数组 A[low, high] 的最大子数组，则根据分治策略，我们将子数组划分为两个规模尽量相等的子数组，即找到子数组的中央位置，记为 mid。则最大子数组必然出现以下三种情况：
 >
@@ -20,7 +18,7 @@ function findMaxCrossingSubarray(&$A, $low, $mid, $high){
     // 获取左子数组最大值和下标元组
     $leftSum = -PHP_INT_MAX;
     $sum = 0;
-    for($i = $mid; $i >= 0; $i--) {
+    for($i = $mid; $i >= $low; $i--) {
         $sum = $sum + $A[$i];
         if ($sum > $leftSum) {
             $leftSum = $sum;
@@ -90,6 +88,9 @@ $A = [13,-3,-25,20,-3,-16,-23,18,20,-7,12,-5,-22,15,-4,7];
 print_r(findMaximumSubarray($A, 0, 15));
 ```
 
-算法复杂度：O(nlgn)
+算法复杂度分析：
 
-## 线性时间算法
+当 n=1 时，执行时间为 T(1) = O(1);  
+当 n>1 时，执行时间为 T(n) = 2T(n/2) + O(n) ;
+
+求解，得出算法复杂度为：O(nlgn)
